@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'InfiniteScrollCollectionView_Example' do
+  pod 'InfiniteScrollCollectionView', :path => '../'
+
+  target 'InfiniteScrollCollectionView_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
