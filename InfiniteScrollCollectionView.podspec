@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'InfiniteScrollCollectionView'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of InfiniteScrollCollectionView.'
+  s.summary          = 'A Infinite horizontal scrolling collectionView.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,15 +18,26 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Create a infinitely scrolling horizontal collection view.
+Limitations:
+1. Total number of items in the collection view should sum to a width greater than or equal to width of collection view.
+2. There will be repeating (one less than number of elements occupy the collection view bounds.width [N]) elements on both ends of data source array. To the begning N elements will be added from the end and at the end N elements will be added from the begning. So in identifying the elements please use some mechanism.
+How To:
+1. Add InfiniteScrollCollectionView in Storyboard or initWithFrame.
+2. Set 'infiniteScrollDelegate'.
+3. Call 'prepareDataSourceForInfiniteScroll' with data array.
+4. Call 'setInitialOffset' on viewDidAppear.
+5. Call 'infiniteScrollViewDidScroll' from 'scrollViewDidScroll' of this collectionView's delegate.
+
+Thats it. Enjoy!
                        DESC
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/InfiniteScrollCollectionView'
+  s.homepage         = 'https://github.com/tmukammel/InfiniteScrollCollectionView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Twaha Mukammel' => 't.mukammel@aol.com' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/InfiniteScrollCollectionView.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/tmukammel/InfiniteScrollCollectionView.git', :tag => s.version.to_s }
+  # s.social_media_url = 'https://twitter.com/tmukammel'
 
   s.ios.deployment_target = '8.0'
 
