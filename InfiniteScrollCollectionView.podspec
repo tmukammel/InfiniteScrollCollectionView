@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 Create a infinitely scrolling horizontal collection view.
 Limitations:
 1. Total number of items in the collection view should sum to a width greater than or equal to width of collection view.
-2. There will be repeating (one less than number of elements occupy the collection view bounds.width [N]) elements on both ends of data source array. To the begning N elements will be added from the end and at the end N elements will be added from the begning. So in identifying the elements please use some mechanism.
+2. There will be repeating (one less than number of elements occupy the collection view bounds.width <N>) elements on both ends of data source array. To the begning N elements will be added from the end and at the end N elements will be added from the begning. So in identifying the elements please use some mechanism.
 How To:
 1. Add InfiniteScrollCollectionView in Storyboard or initWithFrame.
 2. Set 'infiniteScrollDelegate'.
@@ -33,11 +33,11 @@ Thats it. Enjoy!
                        DESC
 
   s.homepage         = 'https://github.com/tmukammel/InfiniteScrollCollectionView'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.screenshot       = 'https://dl.dropboxusercontent.com/s/j61j4mfohp8k6ry/IMG_0965.PNG'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Twaha Mukammel' => 't.mukammel@aol.com' }
   s.source           = { :git => 'https://github.com/tmukammel/InfiniteScrollCollectionView.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/tmukammel'
+  s.social_media_url = 'https://twitter.com/tmukammel'
 
   s.ios.deployment_target = '8.0'
 

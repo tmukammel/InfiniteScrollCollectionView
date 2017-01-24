@@ -9,7 +9,24 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
+## About
+
+Create a infinitely scrolling horizontal collection view.
+
+## Limitations
+
+1. Total number of items in the collection view should sum to a width greater than or equal to width of collection view.
+2. There will be repeating (one less than number of elements occupy the collection view bounds.width -> N) elements on both ends of data source array. To the begning N elements will be added from the end and at the end N elements will be added from the begning. So in identifying the elements please use some mechanism.
+
+## How To
+
+1. Add InfiniteScrollCollectionView in Storyboard or initWithFrame.
+2. Set 'infiniteScrollDelegate'.
+3. Call 'prepareDataSourceForInfiniteScroll' with data array.
+4. Call 'setInitialOffset' on viewDidAppear.
+5. Call 'infiniteScrollViewDidScroll' from 'scrollViewDidScroll' of this collectionView's delegate.
+
+Thats it. Enjoy!
 
 ## Installation
 

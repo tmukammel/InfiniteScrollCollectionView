@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  InfiniteScrollCollectionView: ffa7ec52fbda46d8f5197d387115a7d0d2ef23d5
+  InfiniteScrollCollectionView: d8486a94f974b1ec56d7e5f16f966427a390dd52
 
 PODFILE CHECKSUM: 636e34f8bab458d325b0d596f6109ba3f18a377c
 
