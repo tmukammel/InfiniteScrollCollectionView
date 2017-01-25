@@ -20,7 +20,7 @@ open class InfiniteScrollCollectionView: UICollectionView {
         if (wkSelf?.uniformItemSize.width)! > 0.0 {
             let viewSize = self.bounds.size
             let mexItemVisibleOnScreen = Int(ceil(viewSize.width / (wkSelf?.uniformItemSize.width)!))
-            let extraItems = max(2, mexItemVisibleOnScreen - 1)
+            let extraItems = max(1, mexItemVisibleOnScreen - 1)
             
             return extraItems
         }
