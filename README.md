@@ -24,7 +24,8 @@ Create a infinitely scrolling horizontal collection view.
 2. Set 'infiniteScrollDelegate'.
 3. Call 'prepareDataSourceForInfiniteScroll' with data array.
 4. Call 'setInitialOffset' on viewDidAppear.
-5. Call 'infiniteScrollViewDidScroll' from 'scrollViewDidScroll' of this collectionView's delegate.
+5. Implement 'uniformItemSizeInCollectionView' of InfiniteScrollCollectionViewDelegatge.
+6. Call 'infiniteScrollViewDidScroll' from 'scrollViewDidScroll' of this collectionView's delegate.
 
 Thats it. Enjoy!
 
