@@ -4,7 +4,7 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - InfiniteScrollCollectionView (0.1.0)
+  - InfiniteScrollCollectionView (0.1.1)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  InfiniteScrollCollectionView: d8486a94f974b1ec56d7e5f16f966427a390dd52
+  InfiniteScrollCollectionView: a7c6365ff1fbb6392e02ad574bb53fca80e0ca78
 
 PODFILE CHECKSUM: 636e34f8bab458d325b0d596f6109ba3f18a377c
 

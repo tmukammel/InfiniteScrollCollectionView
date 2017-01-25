@@ -11,22 +11,34 @@ import InfiniteScrollCollectionView
 
 class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource, InfiniteScrollCollectionViewDelegatge {
 
-    @IBOutlet weak var collectionView: InfiniteScrollCollectionView!
+    @IBOutlet weak var collectionView1: InfiniteScrollCollectionView!
+    @IBOutlet weak var collectionView2: InfiniteScrollCollectionView!
+    @IBOutlet weak var collectionView3: InfiniteScrollCollectionView!
     
     // Model
-    var dataArray: [Int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    var dataArray1: [Int] = [1]
+    var dataArray2: [Int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    var dataArray3: [Int] = [1, 2, 3]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.infiniteScrollDelegate = self
-        dataArray = collectionView.prepareDataSourceForInfiniteScroll(array: dataArray) as! [Int]
+        collectionView2.infiniteScrollDelegate = self
+        dataArray2 = collectionView2.prepareDataSourceForInfiniteScroll(array: dataArray2) as! [Int]
+        
+        collectionView3.infiniteScrollDelegate = self
+        dataArray3 = collectionView3.prepareDataSourceForInfiniteScroll(array: dataArray3) as! [Int]
+        
+        collectionView1.infiniteScrollDelegate = self
+        dataArray1 = collectionView1.prepareDataSourceForInfiniteScroll(array: dataArray1) as! [Int]
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        collectionView.setInitialOffset()
+        collectionView2.setInitialOffset()
+        collectionView3.setInitialOffset()
+        collectionView1.setInitialOffset()
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,19 +49,41 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     //MARK: - InfiniteScrollCollectionViewDelegatge
 
     func uniformItemSizeIn(collectionView: UICollectionView) -> CGSize {
-        return CGSize(width: 75, height: 40)
+        switch collectionView {
+        case self.collectionView2:
+            return CGSize(width: 75, height: 40)
+        case collectionView3:
+            return CGSize(width: 125, height: 160)
+        default:
+            return CGSize(width: 375, height: 160)
+        }
     }
     
     //MARK: - UICollectionViewDelegate
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        collectionView.infiniteScrollViewDidScroll(scrollView: scrollView)
+        switch scrollView {
+        case collectionView2:
+            collectionView2.infiniteScrollViewDidScroll(scrollView: scrollView)
+        case collectionView3:
+            collectionView3.infiniteScrollViewDidScroll(scrollView: scrollView)
+        default:
+            collectionView1.infiniteScrollViewDidScroll(scrollView: scrollView)
+        }
     }
     
     //MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 75, height: 40)
+        
+        switch collectionView {
+        case self.collectionView2:
+            return CGSize(width: 75, height: 40)
+        case collectionView3:
+            return CGSize(width: 125, height: 160)
+        default:
+            return CGSize(width: 375, height: 160)
+        }
     }
     
     //MARK: - UICollectionViewDataSource
@@ -59,13 +93,35 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArray.count;
+        
+        switch collectionView {
+        case self.collectionView2:
+            return dataArray2.count;
+        case collectionView3:
+            return dataArray3.count;
+        default:
+            return dataArray1.count;
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "demoCell", for: indexPath) as! DemoCell
-        cell.title.text = String(dataArray[indexPath.row])
-        return cell
+        
+        switch collectionView {
+        case self.collectionView2:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "demoCell", for: indexPath) as! DemoCell
+            cell.title.text = String(dataArray2[indexPath.row])
+            return cell
+            
+        case collectionView3:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "demoCell2", for: indexPath) as! DemoCell
+            cell.title.text = String(dataArray3[indexPath.row])
+            return cell
+        default:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "demoCell1", for: indexPath) as! DemoCell
+            cell.title.text = String(dataArray1[indexPath.row])
+            return cell
+        }
     }
 
 }
