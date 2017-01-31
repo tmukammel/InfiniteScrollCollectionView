@@ -10,7 +10,7 @@ import UIKit
 import InfiniteScrollCollectionView
 
 class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource, InfiniteScrollCollectionViewDelegatge {
-
+    
     @IBOutlet weak var collectionView1: InfiniteScrollCollectionView!
     @IBOutlet weak var collectionView2: InfiniteScrollCollectionView!
     @IBOutlet weak var collectionView3: InfiniteScrollCollectionView!
@@ -32,7 +32,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         collectionView1.infiniteScrollDelegate = self
         dataArray1 = collectionView1.prepareDataSourceForInfiniteScroll(array: dataArray1) as! [Int]
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -47,13 +47,13 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     }
     
     //MARK: - InfiniteScrollCollectionViewDelegatge
-
+    
     func uniformItemSizeIn(collectionView: UICollectionView) -> CGSize {
         switch collectionView {
         case self.collectionView2:
             return CGSize(width: 75, height: 40)
         case collectionView3:
-            return CGSize(width: 125, height: 160)
+            return CGSize(width: 150, height: 160)
         default:
             return CGSize(width: 375, height: 160)
         }
@@ -80,7 +80,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         case self.collectionView2:
             return CGSize(width: 75, height: 40)
         case collectionView3:
-            return CGSize(width: 125, height: 160)
+            return CGSize(width: 150, height: 160)
         default:
             return CGSize(width: 375, height: 160)
         }
@@ -123,6 +123,5 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
             return cell
         }
     }
-
+    
 }
-

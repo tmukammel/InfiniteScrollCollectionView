@@ -27,7 +27,7 @@ open class InfiniteScrollCollectionView: UICollectionView {
         else {
             return 0
         }
-    }()
+        }()
     
     lazy private var uniformItemSize: CGSize = {[weak wkSelf = self] in
         if let size = wkSelf?.infiniteScrollDelegate?.uniformItemSizeIn(collectionView: self) {
@@ -36,7 +36,18 @@ open class InfiniteScrollCollectionView: UICollectionView {
         else {
             return .zero
         }
-    }()
+        }()
+    
+    lazy private var offsetCompensation: CGFloat = { [weak wkSelf = self] in
+        if (wkSelf?.uniformItemSize.width)! > 0.0 {
+            let viewSize = self.bounds.size
+            let fraction = ceil(viewSize.width / (wkSelf?.uniformItemSize.width)!) - (viewSize.width / (wkSelf?.uniformItemSize.width)!)
+            return fraction * (wkSelf?.uniformItemSize.width)!
+        }
+        else {
+            return 0
+        }
+        }()
     
     private var numberOfElementsInDataSource: Int!
     
@@ -60,7 +71,8 @@ open class InfiniteScrollCollectionView: UICollectionView {
                     scrollView.contentOffset = CGPoint(x: CGFloat(numberOfElementsInDataSource) * uniformItemSize.width, y: 0)
                 }
                 else if (scrollView.contentOffset.x >= scrollView.contentSize.width - scrollView.bounds.size.width) {
-                    scrollView.contentOffset = CGPoint(x: CGFloat(CGFloat(extraItems - 1) * uniformItemSize.width), y: 0)
+                    scrollView.contentOffset = CGPoint(x: (CGFloat(max(1, extraItems - 1)) * uniformItemSize.width) + offsetCompensation,
+                                                       y: 0)
                 }
             }
         }

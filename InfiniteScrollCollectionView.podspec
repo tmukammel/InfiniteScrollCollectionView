@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'InfiniteScrollCollectionView'
-  s.version          = '1.0'
+  s.version          = '1.1'
   s.summary          = 'A Infinite horizontal scrolling collectionView.'
 
 # This description is used to generate tags and improve search results.
@@ -27,7 +27,8 @@ How To:
 2. Set 'infiniteScrollDelegate'.
 3. Call 'prepareDataSourceForInfiniteScroll' with data array.
 4. Call 'setInitialOffset' on viewDidAppear.
-5. Call 'infiniteScrollViewDidScroll' from 'scrollViewDidScroll' of this collectionView's delegate.
+5. Implement 'uniformItemSizeInCollectionView' of InfiniteScrollCollectionViewDelegatge.
+6. Call 'infiniteScrollViewDidScroll' from 'scrollViewDidScroll' of this collectionView's delegate.
 
 Thats it. Enjoy!
                        DESC
